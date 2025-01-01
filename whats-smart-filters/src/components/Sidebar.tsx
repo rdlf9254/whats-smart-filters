@@ -7,7 +7,7 @@ import React from 'react';
 const Sidebar: React.FC = () => {
   return (
     <div>
-      <h1>Oi</h1>
+      <h1>Oi lele</h1>
     </div>
   );
 };
