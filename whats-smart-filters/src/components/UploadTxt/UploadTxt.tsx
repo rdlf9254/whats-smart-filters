@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './UploadTxt.css'
+import "./UploadTxt.css";
 
 const UploadTxt: React.FC = () => {
   const [uploadedFile, setUploadedFile] = useState<File | null>(null);
@@ -42,7 +42,7 @@ const UploadTxt: React.FC = () => {
           <span>Arquivo:</span>
           <h6 className="text-truncate">{uploadedFile.name}</h6>
           <button className="bg-green-1" onClick={removeFile}>
-              Remover
+            Remover
           </button>
         </div>
       )}

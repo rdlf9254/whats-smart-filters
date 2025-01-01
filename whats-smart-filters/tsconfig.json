@@ -10,7 +10,7 @@
       "src/*": ["./src/*"],
       "components/*":["./src/components/*"],
       "assets": ["./src/assets/*"],
-      "lib": ["./src/lib/*"],
+      "utils": ["./src/utils/*"],
     }
   }
 

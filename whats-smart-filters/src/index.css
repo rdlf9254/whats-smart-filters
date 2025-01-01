@@ -34,7 +34,6 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
 }
 
 a {
@@ -108,7 +107,7 @@ hr {
   width: 744px;
 }
 
-.pointer{
+.pointer {
   cursor: pointer;
 }
 .txt-grey {
@@ -133,4 +132,8 @@ hr {
 
 .bg-green-2 {
   background-color: var(--green-2);
+}
+
+.pl-1 {
+  padding-left: var(--s1);
 }

@@ -1,11 +1,20 @@
 import React from "react";
 import "./Chat.css";
+import MessageBox from "components/MessageBox/MessageBox";
+
 const Chat: React.FC = () => {
   return (
     <div className="chat-container py-4 px-4">
+      {/* with file uploaded: */}
+      <div>
+        <MessageBox
+          message="Tudo está funcionando perfeitamente!"
+          user="fulano"
+          date="5/2/23, 15:51"
+          color="#c18eda"
+        ></MessageBox>
+      </div>
 
-
-      
       {/* no file uploaded message: */}
       <div className="d-flex txt-grey flex-column justify-content-center align-items-center h-100">
         <i className="bi bi-inbox empty-icon"></i>
