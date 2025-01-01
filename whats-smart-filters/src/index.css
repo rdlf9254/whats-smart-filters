@@ -16,11 +16,12 @@
   --txt-grey: #85939b;
   --txt-white: white;
 
-  --txt-green-1: #05ab7f;
-  --txt-green-2: #001c12;
+  --grey-1: #85939b;
 
   --green-1: #05ab7f;
-  --green-2: #001c12;
+  --green-2: #039d68;
+  --green-3: #027d4d;
+  --green-4: #001c12;
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -121,9 +122,14 @@ hr {
 .txt-green-1 {
   color: var(--green-1);
 }
-
 .txt-green-2 {
   color: var(--green-2);
+}
+.txt-green-3 {
+  color: var(--green-3);
+}
+.txt-green-4 {
+  color: var(--green-4);
 }
 
 .bg-green-1 {
