@@ -1,4 +1,23 @@
 :root {
+  --s0: 0px;
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s5: 24px;
+  --s6: 32px;
+  --s7: 48px;
+  --s8: 64px;
+
+  --bg1: #1f2c34;
+  --bg2: #131a22;
+  --bg3: #0b1014;
+
+  --txt-grey: #85939b;
+  --txt-white: white;
+  --txt-green-1: #05ab7f;
+  --txt-green-2: #001c12;
+
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -54,6 +73,10 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+hr {
+  color: white;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -69,4 +92,25 @@ button:focus-visible {
 
 .sidebar {
   width: 280px;
+  background: #1f2c34;
+
+  .chat-icon {
+    font-size: 30px;
+  }
+}
+
+.txt-grey {
+  color: var(--txt-grey);
+}
+
+.txt-white {
+  color: var(--txt-white);
+}
+
+.txt-green-1 {
+  color: var(--txt-green-1);
+}
+
+.txt-green-2 {
+  color: var(--txt-green-2);
 }
