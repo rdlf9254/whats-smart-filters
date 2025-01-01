@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './UploadTxt.css'
 
 const UploadTxt: React.FC = () => {
   const [uploadedFile, setUploadedFile] = useState<File | null>(null);
@@ -21,12 +22,12 @@ const UploadTxt: React.FC = () => {
   };
 
   return (
-    <div className="container mt-4 text-center">
+    <div className="text-center">
       {!uploadedFile ? (
-        <div className="border-upload txt-green-1">
+        <div className="border-upload txt-green-1 pointer">
           <label htmlFor="file-upload" className="d-block">
-            <i className="bi bi-cloud-arrow-up fs-1"></i>
-            <h6 className="mt-2">Carregue um arquivo .txt aqui!</h6>
+            <i className="bi bi-cloud-arrow-up fs-1 pointer"></i>
+            <h6 className="mt-2 pointer">Carregue um arquivo .txt aqui!</h6>
             <input
               id="file-upload"
               type="file"
@@ -38,10 +39,10 @@ const UploadTxt: React.FC = () => {
         </div>
       ) : (
         <div className="border-uploaded text-white">
-          <h6>Arquivo:</h6>
-          <p className="text-truncate">{uploadedFile.name}</p>
-          <button className="btn btn-danger btn-sm mt-2" onClick={removeFile}>
-            Remover
+          <span>Arquivo:</span>
+          <h6 className="text-truncate">{uploadedFile.name}</h6>
+          <button className="bg-green-1" onClick={removeFile}>
+              Remover
           </button>
         </div>
       )}

@@ -1,12 +1,11 @@
 .border-upload {
-  border: 2px dashed var(--txt-green-1);
+  border: 2px dashed var(--green-1);
   border-radius: var(--s2);
-  padding: 20px;
-  cursor: pointer;
+  padding: var(--s4);
   transition: background-color 0.3s ease;
 }
 .border-uploaded {
-  border: 2px solid #33917f;
+  border: 2px solid var(--green-1);
   border-radius: 8px;
   padding: 20px;
   transition: background-color 0.3s ease;

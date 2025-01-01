@@ -15,8 +15,12 @@
 
   --txt-grey: #85939b;
   --txt-white: white;
+
   --txt-green-1: #05ab7f;
   --txt-green-2: #001c12;
+
+  --green-1: #05ab7f;
+  --green-2: #001c12;
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -30,6 +34,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 a {
@@ -47,6 +52,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: var(--bg3);
 }
 
 h1 {
@@ -93,12 +99,16 @@ hr {
 .sidebar {
   width: 280px;
   background: #1f2c34;
+  height: 100vh;
 
-  .chat-icon {
-    font-size: 30px;
+  .icon {
+    font-size: 20px;
   }
 }
 
+.pointer{
+  cursor: pointer;
+}
 .txt-grey {
   color: var(--txt-grey);
 }
@@ -108,9 +118,17 @@ hr {
 }
 
 .txt-green-1 {
-  color: var(--txt-green-1);
+  color: var(--green-1);
 }
 
 .txt-green-2 {
-  color: var(--txt-green-2);
+  color: var(--green-2);
+}
+
+.bg-green-1 {
+  background-color: var(--green-1);
+}
+
+.bg-green-2 {
+  background-color: var(--green-2);
 }
