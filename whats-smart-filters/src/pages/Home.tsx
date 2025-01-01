@@ -1,13 +1,12 @@
 import React from "react";
 import Sidebar from "components/Sidebar";
+import Chat from "components/Chat/Chat";
 
 const Home: React.FC = () => {
   return (
     <div className="d-flex flex-row">
       <Sidebar></Sidebar>
-      <div>
-        <h1>chat aqui</h1>
-      </div>
+      <Chat></Chat>  
     </div>
   );
 };

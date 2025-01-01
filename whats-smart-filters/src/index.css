@@ -71,9 +71,6 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-button:hover {
-  border-color: #646cff;
-}
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -98,12 +95,17 @@ hr {
 
 .sidebar {
   width: 280px;
-  background: #1f2c34;
+  background: var(--bg1);
   height: 100vh;
 
   .icon {
     font-size: 20px;
   }
+}
+
+.chat-container {
+  background: var(--bg2);
+  width: 744px;
 }
 
 .pointer{
