@@ -5,7 +5,7 @@ import { ChatContext } from "../../contexts/ChatContext";
 import "./UploadTxt.css";
 
 import Message from "../../types/Message";
-import { parseMessages } from "../../utils/messageParser";
+import { parseMessages } from "../../utils/messageUtils";
 
 
 

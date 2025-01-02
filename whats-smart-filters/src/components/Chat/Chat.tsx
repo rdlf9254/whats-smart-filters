@@ -20,14 +20,6 @@ const Chat: React.FC = () => {
           ></MessageBox>
         ))}
       </div>
-      <div>
-        <MessageBox
-          message="Tudo está funcionando perfeitamente!"
-          user="fulano"
-          date="5/2/23, 15:51"
-          color="#c18eda"
-        ></MessageBox>
-      </div>
 
       {/* no file uploaded message: */}
       <div className="d-flex txt-grey flex-column justify-content-center align-items-center h-100">
