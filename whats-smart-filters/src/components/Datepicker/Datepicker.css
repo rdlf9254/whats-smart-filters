@@ -1,4 +1,6 @@
-.custom-datepicker{
-    background-color: var(--green-4);
-    border: 3px solid red;
+.custom-datepicker {
+  background-color: var(--green-2);
+  border: 1px solid var(--green-4);
+  padding: 4px;
+  border-radius: 4px;
 }

@@ -3,7 +3,7 @@ import "./Sidebar.css";
 
 import UploadTxt from "../UploadTxt/UploadTxt";
 import MultiSelect from "../MultiSelect/MultiSelect";
-import TextArea from "../TextArea";
+import TextArea from "../TextArea/TextArea";
 import Datepicker from "../Datepicker/Datepicker";
 
 // Crie campos para filtros, como:
@@ -28,20 +28,22 @@ const Sidebar: React.FC = () => {
       </div>
       <hr></hr>
 
-      <div className="filter-options d-flex flex-column gap-3">
-        <UploadTxt></UploadTxt>
+      <div className="filters ">
+        <div className="filter-options d-flex flex-column gap-3">
+          <UploadTxt></UploadTxt>
 
-        <MultiSelect
-          label="Filtrar por usuários:"
-          options={mockUsers}
-        ></MultiSelect>
+          <MultiSelect
+            label="Filtrar por usuários:"
+            options={mockUsers}
+          ></MultiSelect>
 
-        <TextArea label="Texto contém:"></TextArea>
-        <TextArea label="Texto não contém:"></TextArea>
+          <TextArea label="Texto contém:"></TextArea>
+          <TextArea label="Texto não contém:"></TextArea>
 
-        <div className="d-flex flex-column">
-          <Datepicker label="Período específico:"></Datepicker>
-          <Datepicker label="até:"></Datepicker>
+          <div className="d-flex flex-column">
+            <Datepicker label="Período específico:"></Datepicker>
+            <Datepicker label="até:"></Datepicker>
+          </div>
         </div>
       </div>
     </div>

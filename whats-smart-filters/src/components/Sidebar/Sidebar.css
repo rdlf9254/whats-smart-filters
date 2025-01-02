@@ -6,7 +6,11 @@
   }
 }
 
-.filter-options {
+.filters {
   height: 100%;
   overflow-y: scroll;
+}
+
+.filter-options {
+  margin-right: 4px;
 }
