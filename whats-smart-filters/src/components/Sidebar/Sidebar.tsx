@@ -1,8 +1,9 @@
 import React from "react";
-
-import UploadTxt from "./UploadTxt/UploadTxt";
-import MultiSelect from "./MultiSelect/MultiSelect";
-import TextArea from "./TextArea";
+import './Sidebar.css'
+import UploadTxt from "../UploadTxt/UploadTxt";
+import MultiSelect from "../MultiSelect/MultiSelect";
+import TextArea from "../TextArea";
+import Datepicker from "../Datepicker/Datepicker";
 
 // interface SidebarProps {
 //   titulo: string;
@@ -37,6 +38,11 @@ const Sidebar: React.FC = () => {
 
         <TextArea label="Texto contém:"></TextArea>
         <TextArea label="Texto não contém:"></TextArea>
+
+        <div className="d-flex flex-column">
+        <Datepicker label="Período específico:"></Datepicker>
+        <Datepicker label="até:"></Datepicker>
+        </div>
       </div>
     </div>
   );

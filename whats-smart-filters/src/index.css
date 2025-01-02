@@ -93,20 +93,8 @@ hr {
   }
 }
 
-.sidebar {
-  width: 280px;
-  background: var(--bg1);
-  height: 100vh;
 
-  .icon {
-    font-size: 20px;
-  }
-}
 
-.chat-container {
-  background: var(--bg2);
-  width: 744px;
-}
 
 .pointer {
   cursor: pointer;
