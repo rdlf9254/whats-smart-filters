@@ -4,7 +4,7 @@ import { ChatContext } from "../../contexts/ChatContext";
 
 import "./UploadTxt.css";
 
-
+import Message from "../../types/Message";
 import { parseMessages } from "../../utils/messageParser";
 
 
@@ -38,6 +38,7 @@ const UploadTxt: React.FC = () => {
 
   const removeFile = () => {
     setUploadedFile(null);
+    context?.setMessages([]);
   };
 
   return (
