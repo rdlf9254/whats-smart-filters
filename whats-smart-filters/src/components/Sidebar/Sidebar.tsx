@@ -5,12 +5,9 @@ import UploadTxt from "../UploadTxt/UploadTxt";
 import MultiSelect from "../MultiSelect/MultiSelect";
 import TextArea from "../TextArea/TextArea";
 import Datepicker from "../Datepicker/Datepicker";
+import Timepicker from "../Timepicker/Timepicker";
 
 // Crie campos para filtros, como:
-// Usuário: Um dropdown com os usuários identificados.
-// Texto na Mensagem: Um campo de texto para busca.
-// Intervalo de Datas: Um seletor de datas ou calendário.
-// Palavras-chave Excluídas: Uma lista de palavras que eliminam mensagens contendo elas.
 // Mensagens por Hora do Dia: Mostrar mensagens apenas de um intervalo de horas.
 
 const Sidebar: React.FC = () => {
@@ -43,6 +40,11 @@ const Sidebar: React.FC = () => {
           <div className="d-flex flex-column">
             <Datepicker label="Período específico:"></Datepicker>
             <Datepicker label="até:"></Datepicker>
+          </div>
+
+          <div className="d-flex flex-column">
+            <Timepicker label="Hora específica do dia:"></Timepicker>
+            <Timepicker label="até:"></Timepicker>
           </div>
         </div>
       </div>

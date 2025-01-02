@@ -6,14 +6,14 @@ const Chat: React.FC = () => {
   return (
     <div className="chat-container py-4 px-4">
       {/* with file uploaded: */}
-      <div>
+      {/* <div>
         <MessageBox
           message="Tudo está funcionando perfeitamente!"
           user="fulano"
           date="5/2/23, 15:51"
           color="#c18eda"
         ></MessageBox>
-      </div>
+      </div> */}
 
       {/* no file uploaded message: */}
       <div className="d-flex txt-grey flex-column justify-content-center align-items-center h-100">
