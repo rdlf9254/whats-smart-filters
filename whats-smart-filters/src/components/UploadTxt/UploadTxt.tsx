@@ -1,14 +1,26 @@
 import React, { useState } from "react";
 import "./UploadTxt.css";
+// import Message from "../../types/Message";
+import { parseMessages } from "../../utils/messageParser";
 
 const UploadTxt: React.FC = () => {
   const [uploadedFile, setUploadedFile] = useState<File | null>(null);
+  const [messages, setMessages] = useState<any[]>([]);
 
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
       const file = event.target.files[0];
       if (file.type === "text/plain") {
         setUploadedFile(file);
+
+        // Lê o arquivo e processa as mensagens
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const fileContent = e.target?.result as string;
+          const parsedMessages = parseMessages(fileContent);
+          setMessages(parsedMessages);
+        };
+        reader.readAsText(file);
       } else {
         alert("Only .txt files are allowed!");
         // limpa input:
