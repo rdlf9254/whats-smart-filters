@@ -14,6 +14,6 @@ echo "Fazendo commit..."
 git commit -m "$commit_message"
 
 echo "Fazendo push..."
-git push origin main
+git push origin aux
 
 echo "Push feito!"

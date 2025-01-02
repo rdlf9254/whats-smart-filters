@@ -1,15 +1,8 @@
 import React from "react";
 import { formatDate } from "../../utils/dateUtils";
+import Message from "../../types/Message";
 
-
-interface MessageBoxProps {
-  user: string;
-  date: string;
-  message: string;
-  color: string;
-}
-
-const MessageBox: React.FC<MessageBoxProps> = ({
+const MessageBox: React.FC<Message> = ({
   user,
   date,
   message,
@@ -18,8 +11,8 @@ const MessageBox: React.FC<MessageBoxProps> = ({
   return (
     <div className="msg d-flex flex-column">
       <div className="msg-header  fs-6">
-        <span className="txt-white">{user}</span>
-        <span className="txt-grey ms-auto pl-1">{formatDate(date)}</span>
+        <span className="txt-white txt-sm">{user}</span>
+        <span className="txt-grey ms-auto pl-1 txt-sm">{formatDate(date)}</span>
       </div>
 
       <div

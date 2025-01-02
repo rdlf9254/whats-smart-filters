@@ -7,6 +7,13 @@ import MultiSelect from "./MultiSelect/MultiSelect";
 //   titulo: string;
 // }
 
+// Crie campos para filtros, como:
+// Usuário: Um dropdown com os usuários identificados.
+// Texto na Mensagem: Um campo de texto para busca.
+// Intervalo de Datas: Um seletor de datas ou calendário.
+// Palavras-chave Excluídas: Uma lista de palavras que eliminam mensagens contendo elas.
+// Mensagens por Hora do Dia: Mostrar mensagens apenas de um intervalo de horas.
+
 const Sidebar: React.FC = () => {
   const mockUsers = [
     { label: "Fulano", value: "Fulano" },
