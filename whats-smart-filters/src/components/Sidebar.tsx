@@ -2,6 +2,7 @@ import React from "react";
 
 import UploadTxt from "./UploadTxt/UploadTxt";
 import MultiSelect from "./MultiSelect/MultiSelect";
+import TextArea from "./TextArea";
 
 // interface SidebarProps {
 //   titulo: string;
@@ -33,6 +34,9 @@ const Sidebar: React.FC = () => {
         <UploadTxt></UploadTxt>
 
         <MultiSelect label="Filtrar por usuários:" options={mockUsers}></MultiSelect>
+
+        <TextArea label="Texto contém:"></TextArea>
+        <TextArea label="Texto não contém:"></TextArea>
       </div>
     </div>
   );

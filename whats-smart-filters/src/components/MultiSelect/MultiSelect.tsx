@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import "./MultiSelect.css";
-
-interface Option {
-  label: string;
-  value: string;
-}
+import Option from "../../types/Options";
 
 interface MultiSelectProps {
   options: Option[];
