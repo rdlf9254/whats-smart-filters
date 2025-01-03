@@ -52,6 +52,7 @@ const Sidebar: React.FC<SidebarProps> = ({ filters, setFilters }) => {
             value={filters.contain}
             onChange={(value: string) => handleInputChange("contain", value)}
           ></TextArea>
+
           <TextArea
             label="Texto não contém:"
             value={filters.notContain}

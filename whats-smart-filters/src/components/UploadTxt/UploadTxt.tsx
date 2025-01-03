@@ -5,7 +5,8 @@ import { ChatContext } from "../../contexts/ChatContext";
 import "./UploadTxt.css";
 
 import Message from "../../types/Message";
-import { parseMessages } from "../../utils/messageUtils";
+import { getAllUsers, parseMessages } from "../../utils/messageUtils";
+import Option from "../../types/Option";
 
 
 
@@ -25,7 +26,10 @@ const UploadTxt: React.FC = () => {
         reader.onload = (e) => {
           const fileContent = e.target?.result as string;
           const parsedMessages = parseMessages(fileContent);
+          const allUsers: Option[] = getAllUsers(parsedMessages)
+          console.log('allusers',allUsers)
           context?.setMessages(parsedMessages);
+          context?.setAllUsers(allUsers);
         };
         reader.readAsText(file);
       } else {
@@ -39,6 +43,7 @@ const UploadTxt: React.FC = () => {
   const removeFile = () => {
     setUploadedFile(null);
     context?.setMessages([]);
+    context?.setAllUsers([])
   };
 
   return (

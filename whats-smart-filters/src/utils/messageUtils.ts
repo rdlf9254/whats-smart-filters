@@ -43,14 +43,20 @@ const parseMessages = (txtContent: string) => {
 };
 
 const getAllUsers = (messages: Message[]) => {
-  const users = messages.map((msg) => {
-    return {
-      label: msg.user,
-      value: msg.user,
-    };
+  const users: Set<string> = new Set<string>();
+
+  messages.forEach((msg) => {
+    users.add(msg.user)
   });
 
-  return users;
+  const aux: Option[] = Array.from(users).map((user)=>{
+    return {
+      label: user,
+      value: user,
+    }
+  })
+
+  return aux;
 };
 
 const generatePastelColor = (index: number): string => {
