@@ -6,7 +6,7 @@
 }
 
 .dropdown-item-custom {
-  color: var(--txt-white); /* Cor dos itens */
+  color: var(--txt-white);
 }
 
 .dropdown-item-custom:hover {
