@@ -7,9 +7,9 @@ const Chat: React.FC = () => {
   const context = useContext(ChatContext);
 
   return (
-    <div className="chat-container py-4 px-4">
+    <div className="chat  px-4 py-1">
       {/* with file uploaded: */}
-      <div>
+      <div className="chat-container pt-4">
         {context?.messages.map((message, i) => (
           <MessageBox
             key={i}
