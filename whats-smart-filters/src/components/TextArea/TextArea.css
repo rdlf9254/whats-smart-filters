@@ -32,3 +32,7 @@
   opacity: 0.6;
   color: var(--txt-white);
 }
+
+.textarea-custom::placeholder {
+  color: var(--grey-1); 
+}

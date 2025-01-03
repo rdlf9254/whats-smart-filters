@@ -3,7 +3,7 @@ import "./MultiSelect.css";
 import Option from "../../types/Option";
 
 interface MultiSelectProps {
-  options: Option[];
+  options?: Option[];
   label?: string;
   value: string[];
   onChange?: (date: string) => void;
@@ -32,7 +32,7 @@ const MultiSelect: React.FC<MultiSelectProps> = ({ options, label }) => {
         data-bs-toggle="dropdown"
         aria-haspopup="true"
         aria-expanded="false"
-        disabled={!options}
+        disabled={!options?.length}
       >
         Usuários
       </button>
@@ -40,7 +40,7 @@ const MultiSelect: React.FC<MultiSelectProps> = ({ options, label }) => {
         className="dropdown-menu dropdown-menu-custom w-100"
         aria-labelledby="dropdownMenuButton"
       >
-        {options.map((option) => (
+        {options?.map((option) => (
           <li key={option.value}>
             <a
               className={`dropdown-item dropdown-item-custom d-flex align-items-center`}

@@ -46,15 +46,15 @@ const getAllUsers = (messages: Message[]) => {
   const users: Set<string> = new Set<string>();
 
   messages.forEach((msg) => {
-    users.add(msg.user)
+    users.add(msg.user);
   });
 
-  const aux: Option[] = Array.from(users).map((user)=>{
+  const aux: Option[] = Array.from(users).map((user) => {
     return {
       label: user,
       value: user,
-    }
-  })
+    };
+  });
 
   return aux;
 };

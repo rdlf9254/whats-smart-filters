@@ -8,8 +8,6 @@ import Message from "../../types/Message";
 import { getAllUsers, parseMessages } from "../../utils/messageUtils";
 import Option from "../../types/Option";
 
-
-
 const UploadTxt: React.FC = () => {
   const [uploadedFile, setUploadedFile] = useState<File | null>(null);
 
@@ -25,9 +23,9 @@ const UploadTxt: React.FC = () => {
         const reader = new FileReader();
         reader.onload = (e) => {
           const fileContent = e.target?.result as string;
-          const parsedMessages = parseMessages(fileContent);
-          const allUsers: Option[] = getAllUsers(parsedMessages)
-          console.log('allusers',allUsers)
+          const parsedMessages: Message[] = parseMessages(fileContent);
+          const allUsers: Option[] = getAllUsers(parsedMessages);
+          console.log("allusers", allUsers);
           context?.setMessages(parsedMessages);
           context?.setAllUsers(allUsers);
         };
@@ -43,7 +41,7 @@ const UploadTxt: React.FC = () => {
   const removeFile = () => {
     setUploadedFile(null);
     context?.setMessages([]);
-    context?.setAllUsers([])
+    context?.setAllUsers([]);
   };
 
   return (

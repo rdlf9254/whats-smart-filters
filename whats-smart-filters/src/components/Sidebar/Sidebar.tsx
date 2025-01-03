@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import "./Sidebar.css";
 
 import UploadTxt from "../UploadTxt/UploadTxt";
@@ -8,6 +8,7 @@ import Datepicker from "../Datepicker/Datepicker";
 import Timepicker from "../Timepicker/Timepicker";
 
 import Filter from "../../types/filter";
+import { ChatContext } from "../../contexts/ChatContext";
 
 type SidebarProps = {
   filters: Filter;
@@ -15,6 +16,8 @@ type SidebarProps = {
 };
 
 const Sidebar: React.FC<SidebarProps> = ({ filters, setFilters }) => {
+  const context = useContext(ChatContext);
+
   const mockUsers = [
     { label: "Fulano", value: "Fulano" },
     { label: "Cicrano", value: "Cicrano" },
@@ -42,7 +45,7 @@ const Sidebar: React.FC<SidebarProps> = ({ filters, setFilters }) => {
 
           <MultiSelect
             label="Filtrar por usuários:"
-            options={mockUsers}
+            options={context?.allUsers}
             value={filters.users}
             onChange={(value: string) => handleInputChange("users", value)}
           ></MultiSelect>
@@ -51,13 +54,15 @@ const Sidebar: React.FC<SidebarProps> = ({ filters, setFilters }) => {
             label="Texto contém:"
             value={filters.contain}
             onChange={(value: string) => handleInputChange("contain", value)}
-          ></TextArea>
+            placeholder="Digite o texto para filtrar"
+            ></TextArea>
 
           <TextArea
             label="Texto não contém:"
             value={filters.notContain}
             onChange={(value: string) => handleInputChange("notContain", value)}
-          ></TextArea>
+            placeholder="Digite o texto para filtrar"
+            ></TextArea>
 
           <div className="d-flex flex-column">
             <Datepicker
