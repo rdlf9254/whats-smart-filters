@@ -1,50 +1,71 @@
-# React + TypeScript + Vite
+# WhatsApp Smart Filter - React App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This React application allows you to filter WhatsApp backup chat messages from a `.txt` file. You can filter messages by user, specific phrase, date, and/or time of day, making it easier to search through your conversations.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Running the Application](#running-the-application)
+  - [Usage](#usage)
+- [Screenshots](#screenshots)
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **User Filter**: Filter messages by a specific user.
+- **Phrase Filter**: Search for messages containing a specific phrase.
+- **Date Filter**: Filter messages by specific dates.
+- **Time Filter**: Filter messages by the time of day.
+- **Interactive Interface**: Intuitive UI for setting filters and viewing results.
+- **Fast Search**: Instant results for an enhanced user experience.
 
-- Configure the top-level `parserOptions` property like this:
+## Technologies Used
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- **React**: A JavaScript library for building user interfaces.
+- **TypeScript**: A superset of JavaScript that adds static types.
+- **Vite**: A next-generation, fast build tool for modern web projects.
+- **CSS Modules**: For scoped and modular CSS styling.
+
+## Getting Started
+
+### Prerequisites
+
+Before you begin, ensure that you have met the following requirements:
+
+- Node.js installed (version >= 16.0.0 recommended).
+- npm (Node Package Manager) installed (or yarn, if preferred).
+
+You can check if you have Node.js and npm installed by running:
+
+```bash
+node -v
+npm -v
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Installation
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Follow these steps to get your local development environment set up:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- Clone the repository.
+- Navigate to the project folder.
+- Install dependencies using "npm install" or "yarn install".
+
+### Running the Application
+
+Once the dependencies are installed, you can run the app with "npm run dev" or "yarn dev".
+
+### Usage
+Upload the .txt file: Click on the upload button to select and upload the WhatsApp backup file.
+
+Apply Filters:
+
+User: Select the user whose messages you want to filter.
+Phrase: Enter a keyword or phrase to filter messages that contain it or not contain it.
+Date: Choose a specific date from the available messages.
+Time of Day: Filter messages by the time they were sent.
+
+## Screnshots
+
