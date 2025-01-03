@@ -21,12 +21,6 @@ const Sidebar: React.FC<SidebarProps> = ({ filters, setFilters }) => {
     { label: "steve wonder", value: "steve wonder" },
   ];
 
-  const [users, setUsers] = useState<string[]>();
-  const [date, setDate] = useState<string[]>();
-  const [time, setTime] = useState<string[]>();
-  const [contain, setContain] = useState<string>();
-  const [notContain, setNotContain] = useState<string>();
-
   const handleInputChange = (field: keyof Filter, value: string | string[]) => {
     setFilters((obj) => ({
       ...obj,
@@ -51,8 +45,16 @@ const Sidebar: React.FC<SidebarProps> = ({ filters, setFilters }) => {
             options={mockUsers}
           ></MultiSelect>
 
-          <TextArea label="Texto contém:"></TextArea>
-          <TextArea label="Texto não contém:"></TextArea>
+          <TextArea
+            label="Texto contém:"
+            value={filters.contain}
+            onChange={(value: string) => handleInputChange("contain", value)}
+          ></TextArea>
+          <TextArea
+            label="Texto não contém:"
+            value={filters.notContain}
+            onChange={(value: string) => handleInputChange("notContain", value)}
+          ></TextArea>
 
           <div className="d-flex flex-column">
             <Datepicker label="Período específico:"></Datepicker>
