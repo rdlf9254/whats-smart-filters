@@ -20,7 +20,7 @@ const MessageBox: React.FC<Message> = ({
       </div>
 
       <div
-        className="msg-box rounded p-2  fs-6 text-dark text-wrap"
+        className="msg-box rounded p-2  fs-6 text-dark"
         style={{ backgroundColor: color }}
       >
         {message}

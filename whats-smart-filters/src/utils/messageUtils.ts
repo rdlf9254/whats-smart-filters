@@ -2,34 +2,44 @@ import Message from "../types/Message";
 import Option from "../types/Option";
 
 const parseMessages = (txtContent: string) => {
-  const messages = txtContent.split("\n");
+  const lines = txtContent.split("\n");
   const userColors: Record<string, string> = {};
-  let userIndex = 0;
+  const messages: Message[] = [];
+  const regex = /^(\d{1,2}\/\d{1,2}\/\d{2,4}), (\d{2}:\d{2}) - (.*?): (.*)$/;
+  let currentMessage: Message | null = null;
+  let colorIndex = 0;
 
-  const parsedMessages = messages.map((msg) => {
-    const regex = /^(\d{1,2}\/\d{1,2}\/\d{2,4}), (\d{2}:\d{2}) - (.*?): (.*)$/;
-    const match = msg.match(regex);
+  for (const line of lines) {
+    const match = line.match(regex);
 
     if (match) {
-      const [_, date, time, user, message] = match;
-      const formattedDate = date;
-
-      if (!userColors[user]) {
-        userColors[user] = generatePastelColor(userIndex++);
+      if (currentMessage) {
+        currentMessage.message = currentMessage.message.trim();
+        messages.push(currentMessage);
       }
 
-      return {
-        date: formattedDate,
-        time: time,
-        user: user,
-        message: message.trim(),
+      const [_, date, time, user, message] = match;
+
+      userColors[user] ||= generatePastelColor(colorIndex++);
+
+      currentMessage = {
+        date,
+        time,
+        user,
+        message,
         color: userColors[user],
       };
+    } else if (currentMessage) {
+      currentMessage.message += `\n${line}`;
     }
-    return null;
-  });
+  }
 
-  return parsedMessages.filter(Boolean); // Remove valores nulos
+  if (currentMessage) {
+    currentMessage.message = currentMessage.message.trim();
+    messages.push(currentMessage);
+  }
+
+  return messages;
 };
 
 const getAllUsers = (messages: Message[]) => {
