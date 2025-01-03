@@ -1,7 +1,35 @@
-.custom-timepicker{
-    background-color: var(--green-2);
-    border: 1px solid var(--green-4);
-    padding: 4px 12px;
-    border-radius: 4px;
-  
+.custom-timepicker {
+  padding: 4px 12px;
+  border: 1px solid var(--green-4);
+  border-radius: 4px;
+  background-color: var(--bg2);
+  color: var(--txt-white);
+}
+
+.custom-timepicker:hover {
+  border-color: var(--green-3);
+  background-color: var(--bg1);
+  color: var(--txt-white);
+}
+
+.custom-timepicker:focus {
+  border-color: var(--green-2);
+  outline: none;
+  background-color: var(--bg1);
+  box-shadow: 0 0 4px var(--green-2);
+  color: var(--txt-white);
+}
+
+.custom-timepicker:active {
+  border-color: var(--green-5);
+  background-color: var(--bg3);
+  color: var(--txt-white);
+}
+
+.custom-timepicker:disabled {
+  border-color: var(--gray-4);
+  background-color: var(--gray-2);
+  cursor: not-allowed;
+  opacity: 0.6;
+  color: var(--txt-white);
 }
