@@ -6,7 +6,7 @@ interface TimepickerProps {
   minTime?: string;
   maxTime?: string;
   value?: string;
-  onTimeChange?: (time: string) => void;
+  onChange?: (time: string) => void;
   disabled?: boolean;
 }
 
@@ -15,7 +15,7 @@ const Timepicker: React.FC<TimepickerProps> = ({
   minTime,
   maxTime,
   value,
-  onTimeChange,
+  onChange,
   disabled = false,
 }) => {
   const [selectedTime, setSelectedTime] = useState<string>(value || "");
@@ -23,8 +23,8 @@ const Timepicker: React.FC<TimepickerProps> = ({
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const time = event.target.value;
     setSelectedTime(time);
-    if (onTimeChange) {
-      onTimeChange(time);
+    if (onChange) {
+      onChange(time);
     }
   };
 

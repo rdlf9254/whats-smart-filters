@@ -5,8 +5,8 @@ interface DatepickerProps {
   label?: string;
   minDate?: string;
   maxDate?: string;
-  value?: string;
-  onDateChange?: (date: string) => void;
+  value: string;
+  onChange?: (date: string) => void;
   disabled?: boolean;
 }
 
@@ -15,7 +15,7 @@ const Datepicker: React.FC<DatepickerProps> = ({
   minDate,
   maxDate,
   value,
-  onDateChange,
+  onChange,
   disabled = false,
 }) => {
   const [selectedDate, setSelectedDate] = useState<string>(value || "");
@@ -23,8 +23,8 @@ const Datepicker: React.FC<DatepickerProps> = ({
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const date = event.target.value;
     setSelectedDate(date);
-    if (onDateChange) {
-      onDateChange(date);
+    if (onChange) {
+      onChange(date);
     }
   };
 

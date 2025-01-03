@@ -5,6 +5,9 @@ import Option from "../../types/Option";
 interface MultiSelectProps {
   options: Option[];
   label?: string;
+  value: string[];
+  onChange?: (date: string) => void;
+
 }
 
 const MultiSelect: React.FC<MultiSelectProps> = ({ options, label }) => {
