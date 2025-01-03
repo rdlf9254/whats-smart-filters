@@ -16,6 +16,7 @@ const Chat: React.FC = () => {
             message={message.message}
             user={message.user}
             date={message.date}
+            time={message.time}
             color={message.color || "#888"}
           ></MessageBox>
         ))}

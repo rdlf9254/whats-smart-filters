@@ -11,10 +11,8 @@ const parseMessages = (txtContent: string) => {
     const match = msg.match(regex);
 
     if (match) {
-      const [_, date, time, user, message, color] = match;
-      const formattedDate = new Date(
-        date.split("/").reverse().join("-")
-      ).toLocaleDateString("pt-BR");
+      const [_, date, time, user, message] = match;
+      const formattedDate = date;
 
       if (!userColors[user]) {
         userColors[user] = generatePastelColor(userIndex++);
@@ -22,7 +20,7 @@ const parseMessages = (txtContent: string) => {
 
       return {
         date: formattedDate,
-        time: `${time}:00`,
+        time: time,
         user: user,
         message: message.trim(),
         color: userColors[user],
