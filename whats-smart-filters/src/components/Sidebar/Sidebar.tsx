@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Sidebar.css";
 
 import UploadTxt from "../UploadTxt/UploadTxt";
@@ -7,15 +7,32 @@ import TextArea from "../TextArea/TextArea";
 import Datepicker from "../Datepicker/Datepicker";
 import Timepicker from "../Timepicker/Timepicker";
 
-// Crie campos para filtros, como:
-// Mensagens por Hora do Dia: Mostrar mensagens apenas de um intervalo de horas.
+import Filter from "../../types/filter";
 
-const Sidebar: React.FC = () => {
+type SidebarProps = {
+  filters: Filter;
+  setFilters: React.Dispatch<React.SetStateAction<Filter>>;
+};
+
+const Sidebar: React.FC<SidebarProps> = ({ filters, setFilters }) => {
   const mockUsers = [
     { label: "Fulano", value: "Fulano" },
     { label: "Cicrano", value: "Cicrano" },
     { label: "steve wonder", value: "steve wonder" },
   ];
+
+  const [users, setUsers] = useState<string[]>();
+  const [date, setDate] = useState<string[]>();
+  const [time, setTime] = useState<string[]>();
+  const [contain, setContain] = useState<string>();
+  const [notContain, setNotContain] = useState<string>();
+
+  const handleInputChange = (field: keyof Filter, value: string | string[]) => {
+    setFilters((obj) => ({
+      ...obj,
+      [field]: value,
+    }));
+  };
 
   return (
     <div className="sidebar d-flex flex-column flex-shrink-0 p-3 h-100">
