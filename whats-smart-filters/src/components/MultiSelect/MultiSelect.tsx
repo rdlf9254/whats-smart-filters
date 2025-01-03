@@ -1,14 +1,10 @@
 import React, { useState } from "react";
-import "./MultiSelect.css"
-
-interface Option {
-  label: string;
-  value: string;
-}
+import "./MultiSelect.css";
+import Option from "../../types/Option";
 
 interface MultiSelectProps {
   options: Option[];
-  label: string;
+  label?: string;
 }
 
 const MultiSelect: React.FC<MultiSelectProps> = ({ options, label }) => {
@@ -37,7 +33,10 @@ const MultiSelect: React.FC<MultiSelectProps> = ({ options, label }) => {
       >
         Usuários
       </button>
-      <ul className="dropdown-menu dropdown-menu-custom w-100" aria-labelledby="dropdownMenuButton">
+      <ul
+        className="dropdown-menu dropdown-menu-custom w-100"
+        aria-labelledby="dropdownMenuButton"
+      >
         {options.map((option) => (
           <li key={option.value}>
             <a

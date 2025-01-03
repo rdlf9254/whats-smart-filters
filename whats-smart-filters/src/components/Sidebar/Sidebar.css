@@ -1,0 +1,16 @@
+.sidebar {
+  width: 280px;
+  background: var(--bg1);
+  .icon {
+    font-size: 20px;
+  }
+}
+
+.filters {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.filter-options {
+  margin-right: 4px;
+}

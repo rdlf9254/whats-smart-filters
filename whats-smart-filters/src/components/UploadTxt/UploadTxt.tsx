@@ -1,14 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+
+import { ChatContext } from "../../contexts/ChatContext";
+
 import "./UploadTxt.css";
+
+import Message from "../../types/Message";
+import { parseMessages } from "../../utils/messageUtils";
+
+
 
 const UploadTxt: React.FC = () => {
   const [uploadedFile, setUploadedFile] = useState<File | null>(null);
+
+  const context = useContext(ChatContext);
 
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
       const file = event.target.files[0];
       if (file.type === "text/plain") {
         setUploadedFile(file);
+
+        // Lê o arquivo e processa as mensagens
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const fileContent = e.target?.result as string;
+          const parsedMessages = parseMessages(fileContent);
+          context?.setMessages(parsedMessages);
+        };
+        reader.readAsText(file);
       } else {
         alert("Only .txt files are allowed!");
         // limpa input:
@@ -19,6 +38,7 @@ const UploadTxt: React.FC = () => {
 
   const removeFile = () => {
     setUploadedFile(null);
+    context?.setMessages([]);
   };
 
   return (
