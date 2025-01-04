@@ -6,30 +6,37 @@ import { ChatContext } from "../../contexts/ChatContext";
 const Chat: React.FC = () => {
   const context = useContext(ChatContext);
 
-  const hasMessages = context?.messages && context.messages.length > 0;
+  const hasFile = context?.messages && context.messages.length > 0;
+  const hasMessages =
+    context?.messagesFiltered && context.messagesFiltered.length > 0;
 
   return (
     <div className="chat px-4 py-1">
-      {hasMessages ? (
+      {hasFile && hasMessages ? (
         <div className="chat-container pt-4">
-          {context.messages.map((message, i) => (
+          {context.messagesFiltered.map((msg, i) => (
             <MessageBox
               key={i}
-              message={message.message}
-              user={message.user}
-              date={message.date}
-              time={message.time}
-              color={message.color || "#888"}
+              message={msg.message}
+              user={msg.user}
+              date={msg.date}
+              time={msg.time}
+              color={msg.color || "#888"}
             />
           ))}
         </div>
       ) : (
         <div className="d-flex txt-grey flex-column justify-content-center align-items-center h-100">
           <i className="bi bi-inbox empty-icon"></i>
-          <h2>Nenhum arquivo encontrado</h2>
+          <h2>
+            {hasFile
+              ? "Nenhum arquivo encontrado!"
+              : "Nenhuma mensagem encontrada!"}
+          </h2>
           <p className="text-center">
-            Você ainda não fez o upload de nenhum arquivo .txt. Clique no botão
-            ao lado para começar!
+            {hasFile
+              ? "Você ainda não fez o upload de nenhum arquivo .txt. Clique no botão ao lado para começar!"
+              : "Nenhuma mensagem encontrada com os filtros atuais. Tente outros filtros!"}
           </p>
         </div>
       )}

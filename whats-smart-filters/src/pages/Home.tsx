@@ -11,10 +11,11 @@ import { ChatContext } from "../contexts/ChatContext";
 
 const Home: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([]);
+  const [messagesFiltered, setMessagesFiltered] = useState<Message[]>([]);
   const [filters, setFilters] = useState<Filter>({
     users: [],
-    date: [],
-    time: [],
+    date: ["2025-01-01", "2025-01-01"],
+    time: ["00:00", "23:59"],
     contain: "",
     notContain: "",
   });
@@ -23,7 +24,14 @@ const Home: React.FC = () => {
   return (
     <div className="d-flex flex-row h-100">
       <ChatContext.Provider
-        value={{ messages, setMessages, allUsers, setAllUsers }}
+        value={{
+          messages,
+          setMessages,
+          messagesFiltered,
+          setMessagesFiltered,
+          allUsers,
+          setAllUsers,
+        }}
       >
         <Sidebar filters={filters} setFilters={setFilters}></Sidebar>
         <Chat></Chat>

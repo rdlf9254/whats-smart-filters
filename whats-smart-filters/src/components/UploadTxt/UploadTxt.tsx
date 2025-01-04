@@ -27,6 +27,7 @@ const UploadTxt: React.FC = () => {
           const allUsers: Option[] = getAllUsers(parsedMessages);
           console.log("allusers", allUsers);
           context?.setMessages(parsedMessages);
+          context?.setMessagesFiltered(parsedMessages);
           context?.setAllUsers(allUsers);
         };
         reader.readAsText(file);
