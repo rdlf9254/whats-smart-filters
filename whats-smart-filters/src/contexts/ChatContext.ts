@@ -5,7 +5,7 @@ import Option from "../types/Option";
 
 interface ChatContextType {
   messages: Message[];
-  messagesFiltered: Message[];
+  messagesFiltered?: Message[];
   allUsers: Option[];
   setMessages: React.Dispatch<React.SetStateAction<Message[]>>;
   setMessagesFiltered: React.Dispatch<React.SetStateAction<Message[]>>;

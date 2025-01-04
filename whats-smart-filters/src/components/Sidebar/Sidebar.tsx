@@ -5,7 +5,6 @@ import "./Sidebar.css";
 import { ChatContext } from "../../contexts/ChatContext";
 
 import Filter from "../../types/filter";
-import Message from "../../types/Message";
 
 import UploadTxt from "../UploadTxt/UploadTxt";
 import MultiSelect from "../MultiSelect/MultiSelect";
@@ -13,19 +12,69 @@ import TextArea from "../TextArea/TextArea";
 import Datepicker from "../Datepicker/Datepicker";
 import Timepicker from "../Timepicker/Timepicker";
 
-type SidebarProps = {
-  filters: Filter;
-  setFilters: React.Dispatch<React.SetStateAction<Filter>>;
-};
+// type SidebarProps = {
+//   filters: Filter;
+//   setFilters: React.Dispatch<React.SetStateAction<Filter>>;
+// };
 
-const Sidebar: React.FC<SidebarProps> = ({ filters, setFilters }) => {
+const Sidebar: React.FC = () => {
   const context = useContext(ChatContext);
+
+  const today = new Date();
+
+  const [filters, setFilters] = useState<Filter>({
+    users: [],
+    date: ["2009-02-01", today.toISOString().split("T")[0]],
+    time: ["00:00", "23:59"],
+    contain: "",
+    notContain: "",
+  });
+
+  const applyFilters = () => {
+    if (!context?.messages) return;
+
+    const aux = context?.messages.filter((msg) => {
+      const { users, date, time, contain, notContain } = filters;
+
+      // by user
+      if (users.length > 0 && !users.includes(msg.user)) return false;
+
+      // by date
+      const messageDate = new Date(msg.date).getTime();
+      const [startDate, endDate] = date.map((d) => new Date(d).getTime());
+      if (!isWithinRange(messageDate, [startDate, endDate])) return false;
+
+      // by time
+      const msgTime = getMinutes(msg.time);
+      const [startTime, endTime] = time.map(getMinutes);
+      if (!isWithinRange(msgTime, [startTime, endTime])) return false;
+
+      // by contain
+      if (contain && !msg.message.includes(contain)) return false;
+
+      // by not contain
+      if (notContain && msg.message.includes(notContain)) return false;
+
+      return true;
+    });
+
+    context?.setMessagesFiltered(aux);
+  };
+
+  const isWithinRange = (v: number, [s, e]: [number, number]) =>
+    v >= s && v <= e;
+
+  const getMinutes = (time: string) => {
+    const [hour, minute] = time.split(":").map(Number);
+    return hour * 60 + minute;
+  };
 
   const handleInputChange = (field: keyof Filter, value: string | string[]) => {
     setFilters((obj) => ({
       ...obj,
       [field]: value,
     }));
+    applyFilters();
   };
 
   return (
